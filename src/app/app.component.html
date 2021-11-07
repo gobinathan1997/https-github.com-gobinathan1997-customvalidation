@@ -1,0 +1,17 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+<form [formGroup]="registerForm">
+  <label for="userName">userName</label>
+  <input type="text" id="userName" formControlName="userName" >
+  <div class="error" *ngIf="registerForm.get('userName').invalid">userName is invalid</div>
+  <br>
+  <label for="email">email</label>
+  <input type="text" value="email" formControlName="email">
+  <!-- <span *ngIf="isSubmitted && registerForm.controls.email?.errors?.required">Email is required</span> -->
+  
+  <!-- <label for="password">password</label> -->
+<br>
+  <button>Submit</button>
+</form>
