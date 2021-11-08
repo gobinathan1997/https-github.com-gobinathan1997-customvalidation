@@ -5,3 +5,13 @@ p {
 .error{
   color: red;
 }
+form{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  font-size: large;
+}
+
+.correct{
+  color:green;
+}

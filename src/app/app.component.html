@@ -1,20 +1,23 @@
 <hello name="{{ name }}"></hello>
 <h1>RegisterForm</h1>
 <form [formGroup]="registerForm">
-  <label for="userName">userName</label>
-  <input type="text" id="userName" formControlName="userName" >
+  <label for="userName">User name:</label>
+  <input type="text" id="userName" formControlName="userName"  >
   <div class="error" *ngIf="registerForm.get('userName').invalid">userName is invalid</div>
   <br>
-  <label for="email">email</label>
+  <label for="email">email:</label>
   <input type="text" value="email" formControlName="email">
  
   
   <br>
-  <label for="password">password</label>
+  <label for="password">password:</label>
   <input type="password" value="password" formControlName="password">
   <br>
-  <label for=" password">Confirm password</label>
+  <label for=" password">Confirm password:</label>
   <input type="password" value="password" formControlName="confirmPassword">
+  <div class="error" *ngIf= "registerForm.get('password').value!=registerForm.get('confirmPassword').value">password is mismatch</div>
+  <div class="correct" *ngIf= "registerForm.get('password').value==registerForm.get('confirmPassword').value">password is matched</div>
+
 <br>
-  <button (click)="submit()">Submit</button>
+  <button (click)="submit()" style="width:40%;">Submit</button>
 </form>
