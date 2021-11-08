@@ -15,7 +15,7 @@ registerForm= new FormGroup({
   email:new FormControl('gobinathan@gmailcom',Validators.required),
   password:new FormControl(''),
   confirmPassword:new FormControl('')
-})
+}, [this.camparePassword]);
 
 validateUserName(control:AbstractControl):ValidationErrors | null{
   if(control.value.toString().startsWith('a')){
@@ -25,4 +25,22 @@ validateUserName(control:AbstractControl):ValidationErrors | null{
     return null;
   }
 }
+camparePassword(control:AbstractControl){
+
+const v= control as FormGroup
+if(v.controls.confirmPassword.value===v.controls.password.value){
+  v.controls.confirmPassword.setErrors({match:true});
+}
+else{
+  v.controls.confirmPassword.setErrors({match:false});
+
+}
+return v;
+
+
+}
+submit(){
+  console.log(this.registerForm);
+}
+
 }
